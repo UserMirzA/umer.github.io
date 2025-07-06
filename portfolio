@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMER RAFIQUE - Multimedia Specialist</title>
+    <style>
+        /* Dark Theme CSS Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+            background-color: #121212;
+        }
+        
+        header {
+            background: #1e1e1e;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        
+        h1 {
+            margin: 1rem 0 0.5rem;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            color: #4fc3f7;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .projects {
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: #4fc3f7;
+        }
+        
+        .project-card a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contact {
+            background: #1e1e1e;
+            text-align: center;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #4fc3f7;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-links a:hover {
+            background: #4fc3f7;
+            color: #121212;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #121212;
+            color: #777;
+            border-top: 1px solid #333;
+        }
+        
+        .intro-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .other-projects {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        
+        .other-projects a {
+            color: #4fc3f7;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .other-projects a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            background-color: #252525;
+            margin: 10% auto;
+            padding: 2rem;
+            border: 1px solid #4fc3f7;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #fff;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #4fc3f7;
+            color: #121212;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #3da8d8;
+        }
+        
+        @media (max-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-links a {
+                width: 80%;
+                justify-content: center;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Personal Info -->
+    <header>
+        <h1>UMER RAFIQUE</h1>
+        <p class="tagline">Multimedia Specialist</p>
+        <div class="intro-text">
+            <p>Creative and results-driven Multimedia Specialist with over 5 years of hands-on experience in graphic design, motion graphics, and video editing. Adept at transforming concepts into compelling visuals across digital platforms. Strong attention to detail and a passion for storytelling through design and motion.</p>
+        </div>
+    </header>
+    
+    <!-- Projects Section -->
+    <section class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/nDY2peASuDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtu.be/nDY2peASuDM" target="_blank">Watch on YouTube →</a>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/gZGVzGb58F4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtu.be/gZGVzGb58F4" target="_blank">Watch on YouTube →</a>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/pRv8MYOIng0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtu.be/pRv8MYOIng0" target="_blank">Watch on YouTube →</a>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/uXanZ7XAHmY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtu.be/uXanZ7XAHmY" target="_blank">Watch on YouTube →</a>
+            </div>
+        </div>
+        
+        <div class="other-projects">
+            <h3>Want to see more of my work?</h3>
+            <a href="https://mega.nz/folder/YQUATIBR#WvwT4-FT1A89SwitZALLOQ" target="_blank">Browse Other Projects →</a>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+        <div class="contact-links">
+            <a id="email-btn" href="#">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Email Me
+            </a>
+            <a href="https://wa.me/923018548328" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382C17.231 14.283 15.543 13.555 15.28 13.462C15.017 13.37 14.831 13.324 14.645 13.565C14.459 13.806 14.003 14.33 13.861 14.499C13.72 14.667 13.578 14.691 13.337 14.592C13.096 14.493 12.368 14.263 11.511 13.491C10.848 12.891 10.393 12.151 10.252 11.91C10.11 11.669 10.229 11.527 10.352 11.403C10.461 11.294 10.594 11.121 10.726 10.98C10.86 10.838 10.908 10.738 11.006 10.567C11.104 10.396 11.058 10.248 10.984 10.119C10.91 9.99 10.399 8.901 10.186 8.462C9.976 8.028 9.764 8.098 9.617 8.088C9.477 8.079 9.312 8.072 9.147 8.072C8.983 8.072 8.732 8.128 8.519 8.354C8.306 8.58 7.669 9.209 7.669 10.494C7.669 11.78 8.509 13.02 8.644 13.208C8.78 13.396 10.399 15.9 12.784 16.932C13.202 17.112 13.522 17.242 13.764 17.337C14.235 17.525 14.655 17.495 14.98 17.428C15.345 17.353 16.348 16.839 16.594 16.271C16.84 15.703 16.84 15.209 16.772 15.102C16.704 14.995 16.59 14.932 16.472 14.862C16.359 14.795 16.254 14.733 16.104 14.635C15.955 14.537 15.822 14.48 15.689 14.333C15.556 14.185 15.647 14.075 15.727 13.98C15.894 13.78 16.107 13.5 16.251 13.31C16.398 13.116 16.544 12.929 16.622 12.784C16.701 12.639 16.654 12.51 16.591 12.406C16.528 12.302 16.004 11.187 15.832 10.833C15.666 10.492 15.498 10.558 15.373 10.563C15.254 10.568 15.11 10.571 14.966 10.571C14.822 10.571 14.605 10.515 14.427 10.684C14.249 10.853 13.8 11.275 13.8 12.176C13.8 13.077 14.449 13.846 14.558 13.98C14.667 14.114 15.928 15.312 17.596 15.961C18.036 16.144 18.374 16.258 18.636 16.342C19.148 16.505 19.592 16.478 19.925 16.403C20.31 16.316 21.073 15.934 21.31 15.454C21.547 14.974 21.547 14.56 21.485 14.462C21.423 14.364 21.305 14.302 21.187 14.239C21.069 14.176 20.394 13.861 20.236 13.789C20.079 13.717 19.961 13.682 19.843 13.899C19.725 14.116 19.281 14.99 19.149 15.194C19.017 15.398 18.885 15.421 18.714 15.361C18.543 15.301 17.957 15.096 17.472 14.382Z" fill="currentColor"/>
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                +92 301 8548328
+            </a>
+        </div>
+    </section>
+    
+    <!-- Email Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Send Me a Message</h2>
+            <form id="contactForm" action="https://formspree.io/f/rafeequ011@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 UMER RAFIQUE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Email Modal Script
+        const modal = document.getElementById("emailModal");
+        const btn = document.getElementById("email-btn");
+        const span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Form submission handling
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Message sent successfully!");
+                    form.reset();
+                    modal.style.display = "none";
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                alert("There was a problem sending your message. Please try again later.");
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
